@@ -20,10 +20,8 @@ sulphates, alcohol). For each sample, there is one output which is the grade of 
 criticized by at least 3 wine experts. The grade ranges from 0 to 10.
 
 After a quick exploratory data analysis, I discovered a challenge for this project.
+
 ![](https://github.com/heeseungp/WineQualityUsingML/blob/master/img/img1.png)
-
-
-![](https://github.com/heeseungp/WineQualityUsingML/blob/master/img/img2.png)
 
 If can see the third row and second column of both figures above, there is a strong imbalance
 and lack of distribution in the quality of the wine. Many of the instances of red or white wine
@@ -37,9 +35,7 @@ regression models I learned in class (linear regression, ridge regression, kerne
 source vector regression, lasso regression, and elastic regression). Using all 11 features as an
 input, I received the following results (no feature selections).
 
-![](https://github.com/heeseungp/WineQualityUsingML/blob/master/img/img3.png)
-
-![](https://github.com/heeseungp/WineQualityUsingML/blob/master/img/img4.png)
+![](https://github.com/heeseungp/WineQualityUsingML/blob/master/img/img2.png)
 
 As you can see, data imbalance is a huge problem. The best accuracy score on both red and
 white wine don’t even yield anything above 40%. The result you see above does not take in
@@ -52,34 +48,34 @@ Pearson’s correlation matrix show us the measure of strength of a linear assoc
 two variables, negative 1 displays a strong negative correlation and positive 1 displays a strong
 positive correlation.
 
-![](https://github.com/heeseungp/WineQualityUsingML/blob/master/img/img5.png)
+![](https://github.com/heeseungp/WineQualityUsingML/blob/master/img/img3.png)
 
 I elected alcohol, volatile acid, and citric acid for red wine later. I will compile the top three
 features that will be used for training and testing.
 
-![](https://github.com/heeseungp/WineQualityUsingML/blob/master/img/img6.png)
+![](https://github.com/heeseungp/WineQualityUsingML/blob/master/img/img4.png)
 
 Here in white wine, I chose alcohol, density, chlorides, and volatile acid.
 Next, I performed a feature selection using SelectKBest. SelectKBest is use to select features
 according to the k highest scores.
 
-![](https://github.com/heeseungp/WineQualityUsingML/blob/master/img/img7.png)
+![](https://github.com/heeseungp/WineQualityUsingML/blob/master/img/img5.png)
 
 From this feature selection, three best attributes are total sulfur dioxide, free sulfur dioxide, and
 alcohol. It was interesting to see that total sulfur dioxide had the k highest scores out of all other
 attributes.
 
-![](https://github.com/heeseungp/WineQualityUsingML/blob/master/img/img8.png)
+![](https://github.com/heeseungp/WineQualityUsingML/blob/master/img/img6.png)
 
 Select K Best for white wine gives us a similar result; total sulfur dioxide has the highest k score.
 Lastly, I performed feature selection using feature importance. Feature importance is done with
 extra trees classifier.
 
+![](https://github.com/heeseungp/WineQualityUsingML/blob/master/img/img7.png)
+
 ![](https://github.com/heeseungp/WineQualityUsingML/blob/master/img/img8.png)
 
 ![](https://github.com/heeseungp/WineQualityUsingML/blob/master/img/img9.png)
-
-![](https://github.com/heeseungp/WineQualityUsingML/blob/master/img/img10.png)
 
 I will use these selected variables to train and predict wine quality.
 What creates this dataset very challenging to tackle is that the quality of the wine is completely
@@ -97,9 +93,9 @@ wanted to weigh my training sample more than the testing samples, so my test siz
 Using the three features I chose from feature selections, I obtained the following results for
 Random Forest Classifier, Source Vector Machine, and Neural Network.
 
-![](https://github.com/heeseungp/WineQualityUsingML/blob/master/img/img11.png)
+![](https://github.com/heeseungp/WineQualityUsingML/blob/master/img/img10.png)
 
-![](https://github.com/heeseungp/WineQualityUsingML/blob/master/img/img12.png)
+![](https://github.com/heeseungp/WineQualityUsingML/blob/master/img/img11.png)
 
 In conclusion, breaking the continuous variables into categorical variables highly increased the
 accuracy results from 30% to 85%. It is very effective and convenient because for any wine
